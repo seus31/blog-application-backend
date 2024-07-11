@@ -12,7 +12,7 @@ RUN bundle install
 
 COPY ./backend $API_APP_PATH
 
-COPY ./docker/backend/entrypoint.sh /usr/bin/
+COPY ./docker/rails/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
