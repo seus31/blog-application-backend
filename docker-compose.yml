@@ -13,6 +13,7 @@ services:
       - "3366:3306"
     volumes:
       - db-mysql-data:/var/lib/mysql
+
   backend:
     build:
       context: .
@@ -29,6 +30,7 @@ services:
       - "9999:3000"
     depends_on:
       - db
+
   frontend:
     build:
       context: .
