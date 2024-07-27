@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get "/posts", to: "posts#index"
       post "/posts", to: "posts#create"
+      get "/posts/:id", to: "posts#show"
     end
   end
 end

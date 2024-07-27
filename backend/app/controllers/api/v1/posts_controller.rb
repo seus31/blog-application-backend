@@ -1,6 +1,7 @@
 module Api
   module V1
     class PostsController < BaseController
+      before_action :set_post, only: [:show]
       def index
         posts = Post.all
         render json: posts, each_serializer: PostSerializer
@@ -13,6 +14,10 @@ module Api
         else
           render json: post.errors, status: :unprocessable_entity
         end
+      end
+
+      def show
+        render json: @post
       end
 
       private
