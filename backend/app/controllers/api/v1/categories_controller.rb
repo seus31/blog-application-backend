@@ -10,6 +10,11 @@ module Api
         end
       end
 
+      def index
+        categories = Category.all
+        render json: categories, each_serializer: CategorySerializer
+      end
+
       private
 
       def post_params
