@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       delete "/posts/:id", to: "posts#destroy"
 
       post "/categories", to: "categories#create"
+      get "/categories", to: "categories#index"
     end
   end
 end
