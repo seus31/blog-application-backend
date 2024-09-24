@@ -29,7 +29,11 @@ module Api
       end
 
       def destroy
-        @post.destroy
+        ActiveRecord::Base.transaction do
+          @post.destroy!
+        end
+
+        render json: { message: 'Post successfully deleted' }, status: :ok
       end
 
       private
