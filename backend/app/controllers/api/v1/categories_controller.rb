@@ -28,6 +28,14 @@ module Api
         end
       end
 
+      def destroy
+        ActiveRecord::Base.transaction do
+          @category.destroy!
+        end
+
+        render json: { message: 'Post successfully deleted' }, status: :ok
+      end
+
       private
 
       def set_category
