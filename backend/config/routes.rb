@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get "/categories", to: "categories#index"
       get "/categories/:id", to: "categories#show"
       put "/categories/:id", to: "categories#update"
+      delete "/categories/:id", to: "categories#destroy"
     end
   end
 end
