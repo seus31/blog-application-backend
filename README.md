@@ -1,1 +1,2 @@
-# blogアプリケーション
+# blog-application-backend
+blogアプリケーションバックエンド
