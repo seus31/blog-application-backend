@@ -8,10 +8,12 @@ services:
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
       MYSQL_USER: ${DATABASE_USER}
     command: --default-authentication-plugin=mysql_native_password
+    networks:
+      - blog-application-backend-network
     ports:
       - "${EXPOSE_DATABASE_PORT}:3306"
     volumes:
-      - db-mysql-data:/var/lib/mysql
+      - blog-application-backend-data:/var/lib/mysql
 
   app:
     build:
@@ -25,10 +27,19 @@ services:
       RAILS_ENV: ${RAILS_ENV}
     links:
       - db
+    networks:
+      - blog-application-backend-network
     ports:
       - "${EXPOSE_APP_PORT}:3000"
     depends_on:
       - db
 
+networks:
+  blog-application-backend-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.33.2.0/24
+
 volumes:
-  db-mysql-data:
+  blog-application-backend-data:
