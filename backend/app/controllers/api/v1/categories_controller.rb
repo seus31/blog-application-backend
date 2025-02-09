@@ -3,7 +3,7 @@
 module Api
   module V1
     # Api/v1/CategoriesController
-    class CategoriesController < BaseController
+    class CategoriesController < ProtectedController
       before_action :set_category, only: %i[show update]
       def create
         category = Category.new(post_params)

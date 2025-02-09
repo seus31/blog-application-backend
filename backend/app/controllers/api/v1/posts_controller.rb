@@ -3,7 +3,7 @@
 module Api
   module V1
     # Api/v1/PostsController
-    class PostsController < BaseController
+    class PostsController < ProtectedController
       before_action :set_post, only: %i[show update destroy]
       def index
         posts = Post.all
