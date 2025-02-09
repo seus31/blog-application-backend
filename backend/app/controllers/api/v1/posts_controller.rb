@@ -1,7 +1,7 @@
 module Api
   module V1
     class PostsController < BaseController
-      before_action :set_post, only: [:show, :update, :destroy]
+      before_action :set_post, only: %i[show update destroy]
       def index
         posts = Post.all
         render json: posts, each_serializer: PostSerializer
@@ -48,4 +48,3 @@ module Api
     end
   end
 end
-

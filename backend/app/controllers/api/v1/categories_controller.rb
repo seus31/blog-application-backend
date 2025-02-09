@@ -1,7 +1,7 @@
 module Api
   module V1
     class CategoriesController < BaseController
-      before_action :set_category, only: [:show, :update]
+      before_action :set_category, only: %i[show update]
       def create
         category = Category.new(post_params)
         if category.save
