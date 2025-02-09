@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module Api
   module V1
+    # Api/v1/PostsController
     class PostsController < BaseController
       before_action :set_post, only: %i[show update destroy]
       def index

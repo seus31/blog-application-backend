@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module Api
   module V1
+    # Api/v1/CategoriesController
     class CategoriesController < BaseController
       before_action :set_category, only: %i[show update]
       def create
